@@ -1,10 +1,12 @@
 import { GlobalStyle } from './GlobalStyle/GlobalStyle';
 import { Layout } from './GlobalStyle/Layout/Layout.styled';
 
+import { Feedback } from './Feedback';
+
 export const App = () => {
   return (
     <Layout>
-      React homework template
+      <Feedback />
       <GlobalStyle />
     </Layout>
   );
