@@ -1,16 +1,11 @@
+import { GlobalStyle } from './GlobalStyle/GlobalStyle';
+import { Layout } from './GlobalStyle/Layout/Layout.styled';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
+    <Layout>
       React homework template
-    </div>
+      <GlobalStyle />
+    </Layout>
   );
 };
