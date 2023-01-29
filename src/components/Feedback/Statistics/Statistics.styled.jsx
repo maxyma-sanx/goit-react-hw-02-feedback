@@ -12,7 +12,6 @@ export const StatisticsItem = styled.li`
   padding: 15px 20px;
   color: white;
   background-color: ${({ review }) => {
-    console.log(review);
     switch (review) {
       case 'good':
         return 'green';
