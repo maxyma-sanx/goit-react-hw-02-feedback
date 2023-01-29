@@ -1,1 +1,1 @@
-export { FeedbackStatistics } from './Statistics';
+export { Statistics } from './Statistics';

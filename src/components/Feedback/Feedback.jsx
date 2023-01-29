@@ -1,9 +1,10 @@
 import { Component } from 'react';
 
-import { Title } from './Title';
-import { FeedbackStatus } from './Status';
-import { FeedbackStatistics } from './Statistics';
+import { Section } from './Section';
+import { FeedbackOptions } from './FeedbackOptions';
+import { Statistics } from './Statistics';
 import { Notification } from './Notification';
+import { FeedbackContainer } from './Feedback.styled';
 
 export class Feedback extends Component {
   state = {
@@ -36,25 +37,28 @@ export class Feedback extends Component {
     const totalValue = this.countTotalFeedback();
 
     return (
-      <>
-        <Title title="Please leave feedback">
-          <FeedbackStatus increment={this.statisticsCounter} />
-        </Title>
+      <FeedbackContainer>
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            options={Object.keys(this.state)}
+            increment={this.statisticsCounter}
+          />
+        </Section>
 
-        <Title title="Statistics">
+        <Section title="Statistics">
           {totalValue ? (
-            <FeedbackStatistics
+            <Statistics
               good={this.state.good}
               neutral={this.state.neutral}
               bad={this.state.bad}
               total={this.countTotalFeedback}
-              percentage={this.countPositiveFeedbackPercentage}
+              positivePercentage={this.countPositiveFeedbackPercentage}
             />
           ) : (
             <Notification message="There is no feedback" />
           )}
-        </Title>
-      </>
+        </Section>
+      </FeedbackContainer>
     );
   }
 }

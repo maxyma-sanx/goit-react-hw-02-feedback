@@ -1,30 +1,42 @@
 import { Component } from 'react';
-import { StatisticsList } from './Statistics.styled';
+import {
+  StatisticsList,
+  StatisticsItem,
+  StatisticsContainer,
+  StatisticsSum,
+} from './Statistics.styled';
+import { FaChartLine, FaUser } from 'react-icons/fa';
 
-export class FeedbackStatistics extends Component {
+export class Statistics extends Component {
   render() {
-    const { good, neutral, bad, total, percentage } = this.props;
+    const { good, neutral, bad, total, positivePercentage } = this.props;
     const totalValue = total();
-    const percentageValue = percentage();
+    const percentageValue = positivePercentage();
 
     return (
-      <StatisticsList>
-        <li>
-          <p>Good: {good}</p>
-        </li>
-        <li>
-          <p>Neutral: {neutral}</p>
-        </li>
-        <li>
-          <p>Bad: {bad}</p>
-        </li>
-        <li>
-          <p>Total: {totalValue}</p>
-        </li>
-        <li>
-          <p>Positive feedback: {percentageValue} %</p>
-        </li>
-      </StatisticsList>
+      <>
+        <StatisticsList>
+          <StatisticsItem review="good">
+            <p>Good: {good}</p>
+          </StatisticsItem>
+          <StatisticsItem review="neutral">
+            <p>Neutral: {neutral}</p>
+          </StatisticsItem>
+          <StatisticsItem review="bad">
+            <p>Bad: {bad}</p>
+          </StatisticsItem>
+        </StatisticsList>
+        <StatisticsContainer>
+          <StatisticsSum>
+            <FaUser size={15} />
+            Total: {totalValue}
+          </StatisticsSum>
+          <StatisticsSum>
+            <FaChartLine size={20} />
+            Positive feedback: {percentageValue}%
+          </StatisticsSum>
+        </StatisticsContainer>
+      </>
     );
   }
 }
