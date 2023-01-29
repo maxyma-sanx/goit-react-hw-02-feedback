@@ -45,7 +45,8 @@ export const StatisticsSum = styled.p`
   align-items: center;
   gap: 8px;
   padding: 15px 20px;
-  background-color: #f9c4d2;
+  color: white;
+  background-color: blueviolet;
   border-radius: 15px;
 
   cursor: pointer;
