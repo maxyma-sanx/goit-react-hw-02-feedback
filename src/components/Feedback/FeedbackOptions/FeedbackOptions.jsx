@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -6,6 +5,7 @@ import {
   FeedbackItem,
   FeedbackBtn,
 } from './FeedbackOptions.styled';
+
 import {
   BsFillEmojiSmileFill,
   BsFillEmojiNeutralFill,
@@ -18,24 +18,18 @@ const icons = [
   <BsFillEmojiAngryFill size={25} color="orangered" />,
 ];
 
-export class FeedbackOptions extends Component {
-  render() {
-    const { options, increment } = this.props;
-
-    return (
-      <FeedbackList>
-        {options.map((label, index) => (
-          <FeedbackItem key={label}>
-            <FeedbackBtn type="button" name={label} onClick={increment}>
-              {icons[index]}
-              {label[0].toUpperCase() + label.slice(1)}
-            </FeedbackBtn>
-          </FeedbackItem>
-        ))}
-      </FeedbackList>
-    );
-  }
-}
+export const FeedbackOptions = ({ options, increment }) => (
+  <FeedbackList>
+    {options.map((label, index) => (
+      <FeedbackItem key={label}>
+        <FeedbackBtn type="button" name={label} onClick={increment}>
+          {icons[index]}
+          {label[0].toUpperCase() + label.slice(1)}
+        </FeedbackBtn>
+      </FeedbackItem>
+    ))}
+  </FeedbackList>
+);
 
 FeedbackOptions.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
